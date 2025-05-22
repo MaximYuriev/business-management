@@ -14,4 +14,5 @@ class UserSerializer(serializers.ModelSerializer):
             "email",
             "company",
             "password",
+            "position",
         ]

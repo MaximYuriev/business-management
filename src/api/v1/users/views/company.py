@@ -6,6 +6,6 @@ from apps.users.models import Company
 
 
 class CompanyViewSet(viewsets.ModelViewSet):
-    queryset = Company.objects.all()
+    queryset = Company.objects.prefetch_related("employees")
     serializer_class = CompanySerializer
     permission_classes = [IsAdminOrReadOnly]
