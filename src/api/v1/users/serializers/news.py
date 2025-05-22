@@ -6,4 +6,4 @@ from apps.users.models import News
 class NewsSerializer(serializers.ModelSerializer):
     class Meta:
         model = News
-        field = "__all__"
+        fields = "__all__"
