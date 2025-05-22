@@ -6,6 +6,11 @@ from apps.users.models import User
 
 
 class UserViewSet(viewsets.ModelViewSet):
+    """
+    Определяет эндпойнты для взаимодействия с пользователями.
+    Регистрация новых пользователей и чтение уже добавленных доступно всем.
+    Удаление и изменение полей доступно только владельцу аккаунта.
+    """
     queryset = User.objects.all()
     serializer_class = UserSerializer
     permission_classes = [IsSelfOrReadOnly]
