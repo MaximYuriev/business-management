@@ -10,5 +10,6 @@ router.register(r"companies", CompanyViewSet, basename="user_company")
 router.register(r"news", NewsViewSet, basename="user_news")
 
 urlpatterns = [
-    path('v1/', include(router.urls))
+    path('v1/', include(router.urls)),
+    path("v1/auth/", include("rest_framework.urls")),
 ]
