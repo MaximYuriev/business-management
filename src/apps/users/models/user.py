@@ -11,3 +11,7 @@ class User(AbstractUser):
 
     company = models.ForeignKey(Company, related_name="employees", on_delete=models.PROTECT)
     position = models.CharField(choices=PositionChoice, max_length=16, null=True)
+
+    def check_is_manager(self) -> bool:
+        """Проверяет, является ли текущий пользователь менеджером"""
+        return self.position == self.PositionChoice.MANAGER

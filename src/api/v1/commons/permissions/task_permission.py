@@ -16,7 +16,7 @@ class TaskPermission(BasePermission):
             return True
 
         if request.method in "POST":
-            return request.user.position == "manager"
+            return request.user.check_is_manager()
 
         return True
 
@@ -25,10 +25,10 @@ class TaskPermission(BasePermission):
             return True
 
         if request.method in "DELETE":
-            return request.user.position == "manager"
+            return request.user.check_is_manager()
 
         if request.method in ["PUT", "PATCH"]:
-            if request.user.position == "manager":
+            if request.user.check_is_manager():
                 return True
 
             if request.user == obj.responsible:
