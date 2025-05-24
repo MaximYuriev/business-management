@@ -7,6 +7,11 @@ from apps.users.models import Meeting
 
 
 class MeetingViewSet(viewsets.ModelViewSet):
+    """
+    Определяет эндпойнты для управления встречами.
+    Чтение доступно всем аутентифицированным пользователям.
+    Добавление, удаление и изменение только менеджерам.
+    """
     queryset = Meeting.objects.prefetch_related("employees")
     serializer_class = MeetingSerializer
     permission_classes = [IsAuthenticated, IsManagerOrReadOnly]
