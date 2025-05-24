@@ -11,7 +11,6 @@ class TaskSerializer(serializers.ModelSerializer):
         queryset=User.objects.all(),
         write_only=True,
         source='responsible',
-
     )
 
     class Meta:
